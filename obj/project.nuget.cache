@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "KXyhW6gN8s49fzAV5hNFGmiNHK8uYQZIwrVoBtUXpv5u4Jj6Cut3PUFp7062HFpSjSW25HYGH59BOhnaoofjEg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ryoii\\source\\repos\\BlazorServerApp1\\WinFormsModbusTest\\WinFormsModbusTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ryoii\\.nuget\\packages\\nmodbus\\3.0.81\\nmodbus.3.0.81.nupkg.sha512"
+  ],
+  "logs": []
+}
