@@ -17,3 +17,4 @@ C:\Users\ryoii\source\repos\BlazorServerApp1\WinFormsModbusTest\obj\Debug\net8.0
 C:\Users\ryoii\source\repos\BlazorServerApp1\WinFormsModbusTest\obj\Debug\net8.0-windows\WinFormsModbusTest.pdb
 C:\Users\ryoii\source\repos\BlazorServerApp1\WinFormsModbusTest\obj\Debug\net8.0-windows\WinFormsModbusTest.genruntimeconfig.cache
 C:\Users\ryoii\source\repos\BlazorServerApp1\WinFormsModbusTest\obj\Debug\net8.0-windows\ref\WinFormsModbusTest.dll
+C:\Users\ryoii\source\repos\BlazorServerApp1\WinFormsModbusTest\obj\Debug\net8.0-windows\WinFormsModbusTest.sourcelink.json

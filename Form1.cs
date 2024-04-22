@@ -15,7 +15,7 @@ namespace WinFormsModbusTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            timer1.Start();
         }
 
         private void InitializeModbus()
@@ -33,25 +33,7 @@ namespace WinFormsModbusTest
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            //추가기능 예정: 1.예외처리,2.소수점표현,3.일정시간미완료시 알림
-            try
-            {
-                byte slaveId = 1;  // 슬레이브 ID
-                ushort startAddress = 0;  // 시작 주소
-                ushort numRegisters = 1;  // 읽을 레지스터의 수
-
-                // 홀딩 레지스터 읽기
-                ushort[] registers = await master.ReadHoldingRegistersAsync(slaveId, startAddress, numRegisters);
-
-                short[] signedValues = Array.ConvertAll(registers, r => (short)r);
-
-                // 결과를 TextBox에 표시
-                textBox1.Text = signedValues[0].ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"에러 : {ex.Message}");
-            }
+            await UpdateHoldingRegister();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -128,5 +110,34 @@ namespace WinFormsModbusTest
                 MessageBox.Show($"업데이트 실패: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateHoldingRegister();
+        }
+
+        private async Task UpdateHoldingRegister()
+        {
+            //추가기능 예정: 1.예외처리,2.소수점표현,3.일정시간미완료시 알림
+            try
+            {
+                byte slaveId = 1;  // 슬레이브 ID
+                ushort startAddress = 0;  // 시작 주소
+                ushort numRegisters = 1;  // 읽을 레지스터의 수
+
+                // 홀딩 레지스터 읽기
+                ushort[] registers = await master.ReadHoldingRegistersAsync(slaveId, startAddress, numRegisters);
+
+                short[] signedValues = Array.ConvertAll(registers, r => (short)r);
+
+                // 결과를 TextBox에 표시
+                textBox1.Text = signedValues[0].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"에러 : {ex.Message}");
+            }
+        }
+
     }
 }
