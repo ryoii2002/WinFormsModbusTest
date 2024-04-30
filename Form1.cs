@@ -20,6 +20,8 @@ namespace WinFormsModbusTest
 
         private void InitializeModbus()
         {
+            System.Threading.Thread.Sleep(2000);
+            MessageBox.Show("Sleep후 시작");
             // TCP 클라이언트 생성
             client = new TcpClient();
             client.Connect("127.0.0.1", 502); // 슬레이브 장치의 IP 주소와 포트 번호
@@ -96,6 +98,7 @@ namespace WinFormsModbusTest
         {
             try
             {
+                await Task.Delay(1000);
                 byte slaveId = 1; // 슬레이브 ID
                 ushort coilAddress = 0; // 코일의 주소
                 bool writeValue = textBox2.Text.Trim().ToUpper() == "ON"; // TextBox에서 입력된 값을 bool로 변환
